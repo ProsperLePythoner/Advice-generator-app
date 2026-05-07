@@ -14,20 +14,29 @@
     .attribution a { color: hsl(228, 45%, 44%); }
   </style>
 </head>
+
 <body>
+  
+  <div id="loading" class="loading hidden" aria-roledescription="loading indicator">
+    <p id="loading-text">Loading...</p>
+  </div>
+
   <main class="main-container">
 
-    <article class="card">
+    <article class="card" aria-live="polite">
 
-      <h1 class="advice-id">Advice #117</h1>
-      <q class="advice">It is easy to sit up and take notice, what's difficult is getting up and taking action.</q>
+      <h1 class="advice-id" id="adviceId">Advice #117</h1>
+      <q class="advice" id="adviceText">Loading...</q>
       <img src="./images/pattern-divider-desktop.svg" alt="divider" class="divider">
-      
-      <button class="dice-button">
+      <div id="error" class="error hidden">Failed to load. Try again!</div>
+
+      <button class="dice-button" id="diceButton">
         <img src="./images/icon-dice.svg" alt="dice icon">
       </button>
       
     </article>
   </main>
+
+  <script src="script.js"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
-/* Import a relevant font from Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500&display=swap');
+/* The font 'Playwrite DE Grund' is used in the design, so we import it here. */
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+DE+Grund:wght@100..400&display=swap');
 
 *, *::after, *::before {
     margin: 0;
@@ -7,7 +7,7 @@
 }
 
 body {
-    font-family: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Playwrite DE Grund', cursive, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background-color: hsl(218, 23%, 16%);
     padding: 0;
     margin: 0 auto;
@@ -18,11 +18,20 @@ body {
     min-height: 100vh;
 }
 
+header {
+    margin-bottom: 2rem;
+    color: hsl(193, 38%, 86%);
+    box-shadow: inset 0 -2px 0 hsl(129, 78%, 75%);
+
+    position: absolute;
+    top: 0;
+    margin-top: 1rem;
+}
+
 .main-container {
     background-color: hsl(217, 19%, 24%);;
     width: 100%;
     max-width: 540px;
-    margin: 0 auto;
     border-radius: 15px;
 
     text-align: center;
@@ -87,12 +96,49 @@ body {
     justify-content: center;
 
     /* Create a transition effect for :hover state */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: box-shadow 0.2s ease;
 }
 
 .dice-button:hover {
     box-shadow: 0 0 10px hsl(150, 100%, 66%);
     cursor: pointer;
+}
+
+.hidden { display: none !important; } /* For loading/error */
+
+.loading, .error {
+  font-size: 14px;
+  color: hsl(150, 100%, 66%);
+  font-weight: 500;
+}
+
+#loading {
+    position: absolute;
+    top: 200px;
+
+    background-color: hsl(217, 19%, 24%);
+    min-width: 550px;
+    min-height: 50px;
+
+    margin-bottom: 5rem; /* Adjust as needed to position above the button */
+    border-style: none;
+    border-radius: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: larger;
+    font-family: 'Playwrite DE Grund', cursive;
+}
+
+.card h1 { font-weight: 800; } /* Matches design */
+
+@media (max-width: 600px) {
+  .divider img { /* Fix: target img, not .divider */
+    content: none; /* Reset */
+    width: 95% !important;
+  }
 }
 
 .divider {
@@ -108,6 +154,11 @@ body {
         width: 95%;
     }
 
+    #loading {
+        min-width: 90%;
+        top: 150px; /* Adjust for mobile layout */
+    }
+
     body {
         padding: 1rem; /* Add some padding on mobile */
     }
@@ -120,5 +171,13 @@ body {
         font-size: 16px; /* Adjust font size for smaller screens */
     }
 
+    .dice-button {
+        width: 42px; /* Smaller button on mobile */
+        height: 42px;
+    }
 
+    .dice-button img {
+        width: 16px; /* Adjust icon size for smaller button */
+        height: 16px;
+    }
 }
